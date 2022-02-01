@@ -1,5 +1,16 @@
 -- Stuba hallitsee
 
+
+ESX                           = nil
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(5)
+	end
+
+
+
 RegisterCommand('autonlivery', function(source, args) -- Komento minkä kirjoitat chattiin, kun haluat vaihtaa auton "maalauksen"
 	if (
 		ESX.PlayerData.job.name == 'police' and
